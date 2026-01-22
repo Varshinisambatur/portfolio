@@ -1,240 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Varshini Sambatur | Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Varshini Sambatur | Portfolio</title>
 
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #f8f9fb, #eef3f8);
-      --card-bg: rgba(255, 255, 255, 0.9);
-      --text-primary: #1f2937;
-      --text-secondary: #4b5563;
-      --accent: #64748b;
-      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
-      --radius: 18px;
-    }
+<style>
+:root {
+  --text-main: #111827;
+  --text-muted: #374151;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --accent: #64748b;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+/* ---------- GLOBAL ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, sans-serif;
+}
 
-    body {
-      background: var(--bg-gradient);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    120deg,
+    #f9fafb,
+    #eef2f7,
+    #f1f5f9
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 18s ease infinite;
+  color: var(--text-main);
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+/* animated gradient */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1.5rem 4rem;
-    }
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem 4rem;
+}
 
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+/* ---------- HEADER ---------- */
+header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
 
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+header h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+}
 
-    header p {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-    }
+header p {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+}
 
-    header .links {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
+header .links {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
 
-    header .links a {
-      margin: 0 0.5rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
+header .links a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 0.4rem;
+}
 
-    section {
-      margin-bottom: 3rem;
-    }
+/* ---------- SECTIONS ---------- */
+section {
+  margin-bottom: 4rem;
+}
 
-    section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-      font-weight: 600;
-    }
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
 
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.5rem;
-      margin-bottom: 1.3rem;
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      transform: translateY(25px);
-      transition: all 0.6s ease;
-    }
+/* ---------- CARDS ---------- */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 1.6rem;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* animation start */
+  opacity: 0;
+  transform: translateY(60px) scale(0.96);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    box-shadow 0.3s ease;
+}
 
-    .card:hover,
-    .card:active {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-    }
+/* visible state */
+.card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
-    .card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
+/* interaction */
+.card:hover,
+.card:active {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
 
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
+.card h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
 
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-top: 3rem;
-    }
+.card p {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      section h2 {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- HEADER -->
-    <header>
-      <h1>Varshini Sambatur</h1>
-      <p>Data Science & AI Undergraduate Student</p>
-
-      <div class="links">
-        📧 <a href="mailto:Varshinisambatur@gmail.com">Varshinisambatur@gmail.com</a> |
-        📞 9247807010 |
-        🔗 <a href="https://www.linkedin.com/in/varshini-sambatur-0a282234a" target="_blank">LinkedIn</a>
-      </div>
-    </header>
-
-    <!-- ABOUT ME -->
-    <section>
-      <h2>About Me</h2>
-      <div class="card">
-        <p>
-          Driven and adaptable Data Science & AI undergraduate (CGPA: 8.85) with hands-on experience in deep learning,
-          CNN-based vision models, and Python-driven AI pipelines. Worked on real-world systems involving computer vision,
-          backend APIs, and data ingestion on AWS, with a strong interest in applying AI to practical problems.
-        </p>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section>
-      <h2>Education</h2>
-
-      <div class="card">
-        <p><strong>B.Sc. (Technology) — Data Science & AI</strong><br>
-        ICFAI University, Hyderabad • CGPA: 8.85</p>
-      </div>
-
-      <div class="card">
-        <p><strong>Intermediate (IPE)</strong><br>
-        Narayana Junior College, Hyderabad • 93.2%</p>
-      </div>
-
-      <div class="card">
-        <p><strong>ICSE</strong><br>
-        Hyderabad Public School, Hyderabad • 83.4%</p>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section>
-      <h2>Projects</h2>
-
-      <div class="card">
-        <h3>Facial Age & Gender Prediction (CNN)</h3>
-        <p>
-          Built a CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images.
-          Trained and evaluated on the UTKFace dataset with a Streamlit-based interface.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Circular Object Detection (Hough Transform)</h3>
-        <p>
-          Developed a computer vision system using OpenCV to detect circular objects using preprocessing and parameter tuning,
-          with real-time visualization of results.
-        </p>
-      </div>
-    </section>
-
-    <!-- WORK HISTORY -->
-    <section>
-      <h2>Work History</h2>
-
-      <div class="card">
-        <h3>Data Science Intern — Megha AI</h3>
-        <p>Worked on an AI-based Part Traceability System using AWS, PostgreSQL, Lambda, and API Gateway.</p>
-      </div>
-
-      <div class="card">
-        <h3>Business Development Intern — Marcamor</h3>
-        <p>Supported client acquisition and business outreach through daily customer engagement.</p>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 Varshini Sambatur
-    </footer>
+<header>
+  <h1>Varshini Sambatur</h1>
+  <p>Data Science & AI Undergraduate Student</p>
+  <div class="links">
+    📧 <a href="mailto:Varshinisambatur@gmail.com">Varshinisambatur@gmail.com</a> |
+    📞 9247807010 |
+    🔗 <a href="https://www.linkedin.com/in/varshini-sambatur-0a282234a" target="_blank">LinkedIn</a>
   </div>
+</header>
 
-  <!-- SCROLL ANIMATION -->
-  <script>
-    const cards = document.querySelectorAll(".card");
+<section>
+<h2>About Me</h2>
+<div class="card">
+  <p>
+    Driven and adaptable Data Science & AI undergraduate (CGPA: 8.85) with hands-on experience in deep learning,
+    CNN-based vision models, and Python-driven AI pipelines. Worked on real-world systems involving computer vision,
+    backend APIs, and data ingestion on AWS, with a strong interest in applying AI and data analysis to practical problems.
+  </p>
+</div>
+</section>
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+<section>
+<h2>Education</h2>
+<div class="card"><p><strong>B.Sc. Data Science & AI</strong><br>ICFAI University, Hyderabad — CGPA: 8.85</p></div>
+<div class="card"><p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p></div>
+<div class="card"><p><strong>ICSE</strong><br>Hyderabad Public School — 83.4%</p></div>
+</section>
 
-    cards.forEach((card) => observer.observe(card));
-  </script>
+<section>
+<h2>Projects</h2>
+<div class="card">
+  <h3>Facial Age & Gender Prediction</h3>
+  <p>Developed a CNN-based model using TensorFlow and Keras to predict age and gender from facial images, with a Streamlit interface for real-time inference.</p>
+</div>
+<div class="card">
+  <h3>Circular Object Detection</h3>
+  <p>Implemented a computer vision pipeline using OpenCV and Hough Circle Transform to detect circular objects with real-time visualization.</p>
+</div>
+</section>
+
+<section>
+<h2>Work History</h2>
+<div class="card">
+  <h3>Data Science Intern — Megha AI</h3>
+  <p>Worked on an AI-based Part Traceability System on AWS using Lambda, API Gateway, PostgreSQL, and S3.</p>
+</div>
+<div class="card">
+  <h3>Business Development Intern — Marcamor</h3>
+  <p>Supported client outreach and business development through daily customer engagement.</p>
+</div>
+</section>
+
+<footer>
+© 2026 Varshini Sambatur
+</footer>
+
+</div>
+
+<script>
+/* STRONGER scroll animation */
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+document.querySelectorAll(".card").forEach(card => observer.observe(card));
+</script>
+
 </body>
 </html>
