@@ -6,7 +6,7 @@
 <title>Varshini Sambatur | Portfolio</title>
 
 <style>
-/* ================= RESET ================= */
+/* ========== RESET ========== */
 * {
   margin: 0;
   padding: 0;
@@ -14,35 +14,28 @@
   font-family: "Inter", system-ui, sans-serif;
 }
 
-/* ================= DARK ANIMATED BACKGROUND ================= */
+/* ========== BODY ========== */
 body {
-  min-height: 100vh;
+  background: #020617;
   color: #e5e7eb;
-  background: linear-gradient(
-    120deg,
-    #0f172a,
-    #111827,
-    #1e293b,
-    #020617
-  );
-  background-size: 400% 400%;
-  animation: darkFlow 14s ease infinite;
+  overflow-x: hidden;
 }
 
-@keyframes darkFlow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* ========== CANVAS BACKGROUND ========== */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
 }
 
-/* ================= LAYOUT ================= */
+/* ========== LAYOUT ========== */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 3rem 1.5rem 4rem;
 }
 
-/* ================= HEADER ================= */
+/* ========== HEADER ========== */
 header {
   text-align: center;
   margin-bottom: 4rem;
@@ -56,7 +49,9 @@ header h1 {
 
 header p {
   margin-top: 0.4rem;
-  color: #cbd5f5;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
 }
 
 header .links {
@@ -70,7 +65,7 @@ header .links a {
   margin: 0 0.4rem;
 }
 
-/* ================= SECTIONS ================= */
+/* ========== SECTIONS ========== */
 section {
   margin-bottom: 4.5rem;
 }
@@ -81,30 +76,30 @@ section h2 {
   color: #f1f5f9;
 }
 
-/* ================= CARDS ================= */
+/* ========== CARDS ========== */
 .card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
   padding: 1.7rem;
   margin-bottom: 1.6rem;
 
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
 
   opacity: 0;
-  transform: translateY(50px) scale(0.96);
+  transform: translateY(50px);
   transition: all 0.7s ease;
 }
 
 .card.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .card:hover,
 .card:active {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 40px 90px rgba(0,0,0,0.7);
+  transform: translateY(-8px);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.8);
 }
 
 .card h3 {
@@ -114,12 +109,12 @@ section h2 {
 }
 
 .card p {
-  color: #d1d5db;
-  font-size: 0.97rem;
+  color: #cbd5e1;
+  font-size: 0.96rem;
   line-height: 1.6;
 }
 
-/* ================= SKILLS ================= */
+/* ========== SKILLS ========== */
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +129,7 @@ section h2 {
   color: #e0f2fe;
 }
 
-/* ================= PROJECT LINK ================= */
+/* ========== PROJECT LINK ========== */
 .project-link {
   display: inline-block;
   margin-top: 0.9rem;
@@ -151,7 +146,7 @@ section h2 {
   color: #020617;
 }
 
-/* ================= FOOTER ================= */
+/* ========== FOOTER ========== */
 footer {
   text-align: center;
   margin-top: 4rem;
@@ -159,7 +154,7 @@ footer {
   color: #9ca3af;
 }
 
-/* ================= MOBILE ================= */
+/* ========== MOBILE ========== */
 @media (max-width: 600px) {
   header h1 { font-size: 2.3rem; }
 }
@@ -167,11 +162,14 @@ footer {
 </head>
 
 <body>
+
+<canvas id="bg-canvas"></canvas>
+
 <div class="container">
 
 <header>
   <h1>Varshini Sambatur</h1>
-  <p>Data Science & AI Undergraduate</p>
+  <p>BTECH IN DATA SCIENCE AND AI</p>
   <div class="links">
     📧 <a href="mailto:Varshinisambatur@gmail.com">Varshinisambatur@gmail.com</a> |
     📞 9247807010 |
@@ -179,24 +177,33 @@ footer {
   </div>
 </header>
 
+<!-- ABOUT -->
 <section>
 <h2>About Me</h2>
 <div class="card">
   <p>
     Driven and adaptable Data Science & AI undergraduate (CGPA: 8.85) with hands-on experience in deep learning,
-    CNN-based vision models, and Python-driven AI pipelines. Experienced in computer vision, backend APIs,
-    and AWS-based data ingestion with a strong interest in real-world AI applications.
+    CNN-based vision models, and Python-driven AI pipelines. Worked on real-world systems involving computer vision,
+    backend APIs, and AWS-based data ingestion.
   </p>
 </div>
 </section>
 
+<!-- EDUCATION -->
 <section>
 <h2>Education</h2>
-<div class="card"><p><strong>BTECH Data Science & AI</strong><br>ICFAI University — CGPA: 8.85</p></div>
-<div class="card"><p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p></div>
-<div class="card"><p><strong>Schooling</strong></strong><br>Hyderabad Public School(ICSE) — 83.4%</p></div>
+<div class="card">
+  <p><strong>BTECH in Data Science and AI</strong><br>ICFAI University — CGPA: 8.85</p>
+</div>
+<div class="card">
+  <p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p>
+</div>
+<div class="card">
+  <p><strong>Schooling</strong><br>Hyderabad Public School (ICSE)</p>
+</div>
 </section>
 
+<!-- SKILLS -->
 <section>
 <h2>Skills</h2>
 <div class="card">
@@ -213,32 +220,38 @@ footer {
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 
 <div class="card">
   <h3>Facial Age & Gender Prediction</h3>
-  <p>CNN-based model using TensorFlow and Keras to predict age and gender from facial images.</p>
-  <a class="project-link" href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View on GitHub →</a>
+  <p>CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images.</p>
+  <a class="project-link" href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">
+    View on GitHub →
+  </a>
 </div>
 
 <div class="card">
   <h3>Circular Object Detection</h3>
-  <p>Computer vision pipeline using OpenCV and Hough Circle Transform for detecting circular objects.</p>
-  <a class="project-link" href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View on GitHub →</a>
+  <p>Computer vision pipeline using OpenCV and Hough Circle Transform to detect circular objects.</p>
+  <a class="project-link" href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">
+    View on GitHub →
+  </a>
 </div>
 
 </section>
 
+<!-- WORK -->
 <section>
 <h2>Work History</h2>
 <div class="card">
   <h3>Data Science Intern — Megha AI</h3>
-  <p>Built AI-based Part Traceability systems using AWS Lambda, API Gateway, PostgreSQL, and S3.</p>
+  <p>Worked on an AI-based Part Traceability System using AWS Lambda, API Gateway, PostgreSQL, and S3.</p>
 </div>
 <div class="card">
   <h3>Business Development Intern — Marcamor</h3>
-  <p>Supported client outreach and business strategy.</p>
+  <p>Supported business outreach and client engagement.</p>
 </div>
 </section>
 
@@ -249,6 +262,7 @@ footer {
 </div>
 
 <script>
+/* ======= CARD ANIMATION ======= */
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -261,6 +275,46 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".card").forEach(card => observer.observe(card));
+
+/* ======= TECH GRID BACKGROUND ======= */
+const canvas = document.getElementById("bg-canvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+let offset = 0;
+
+function drawGrid() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = "rgba(148,163,184,0.08)";
+  ctx.lineWidth = 1;
+
+  const spacing = 60;
+  offset += 0.3;
+
+  for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
+    ctx.beginPath();
+    ctx.moveTo(x + offset, 0);
+    ctx.lineTo(x + offset, canvas.height);
+    ctx.stroke();
+  }
+
+  for (let y = -spacing; y < canvas.height + spacing; y += spacing) {
+    ctx.beginPath();
+    ctx.moveTo(0, y + offset);
+    ctx.lineTo(canvas.width, y + offset);
+    ctx.stroke();
+  }
+
+  requestAnimationFrame(drawGrid);
+}
+
+drawGrid();
 </script>
 
 </body>
