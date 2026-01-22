@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Varshini Sambatur | Portfolio</title>
 
 <style>
 :root {
   --text-main: #111827;
   --text-muted: #374151;
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --accent: #64748b;
+  --card-bg: rgba(255, 255, 255, 0.88);
 }
 
-/* ---------- GLOBAL ---------- */
+/* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Inter", system-ui, sans-serif;
 }
 
+/* 🔥 ACTUALLY MOVING BACKGROUND */
 body {
   min-height: 100vh;
-  background: linear-gradient(
-    120deg,
-    #f9fafb,
-    #eef2f7,
-    #f1f5f9
-  );
-  background-size: 300% 300%;
-  animation: gradientMove 18s ease infinite;
   color: var(--text-main);
+  background:
+    radial-gradient(circle at 20% 20%, #e6ebf2, transparent 40%),
+    radial-gradient(circle at 80% 30%, #dde6ef, transparent 45%),
+    radial-gradient(circle at 50% 80%, #e9eef5, transparent 50%),
+    linear-gradient(120deg, #f9fafb, #eef2f7, #f1f5f9);
+  background-size: 200% 200%;
+  animation: bgShift 14s ease-in-out infinite;
 }
 
-/* animated gradient */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes bgShift {
+  0% {
+    background-position: 0% 50%, 100% 20%, 50% 80%, 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 80%, 80% 20%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 100% 20%, 50% 80%, 0% 50%;
+  }
 }
 
 .container {
@@ -47,7 +51,7 @@ body {
   padding: 3rem 1.5rem 4rem;
 }
 
-/* ---------- HEADER ---------- */
+/* HEADER */
 header {
   text-align: center;
   margin-bottom: 4rem;
@@ -69,12 +73,12 @@ header .links {
 }
 
 header .links a {
-  color: var(--accent);
+  color: #64748b;
   text-decoration: none;
   margin: 0 0.4rem;
 }
 
-/* ---------- SECTIONS ---------- */
+/* SECTIONS */
 section {
   margin-bottom: 4rem;
 }
@@ -84,14 +88,14 @@ section h2 {
   margin-bottom: 1.5rem;
 }
 
-/* ---------- CARDS ---------- */
+/* CARDS */
 .card {
   background: var(--card-bg);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  border-radius: 22px;
   padding: 1.6rem;
-  margin-bottom: 1.4rem;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 
   /* animation start */
   opacity: 0;
@@ -102,17 +106,16 @@ section h2 {
     box-shadow 0.3s ease;
 }
 
-/* visible state */
 .card.show {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* interaction */
+/* hover + tap */
 .card:hover,
 .card:active {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.15);
 }
 
 .card h3 {
@@ -126,7 +129,7 @@ section h2 {
   line-height: 1.55;
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer {
   text-align: center;
   margin-top: 4rem;
@@ -134,11 +137,9 @@ footer {
   color: var(--text-muted);
 }
 
-/* ---------- MOBILE ---------- */
+/* MOBILE */
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 2.2rem;
-  }
+  header h1 { font-size: 2.2rem; }
 }
 </style>
 </head>
@@ -156,6 +157,7 @@ footer {
   </div>
 </header>
 
+<!-- ABOUT -->
 <section>
 <h2>About Me</h2>
 <div class="card">
@@ -167,34 +169,47 @@ footer {
 </div>
 </section>
 
+<!-- EDUCATION -->
 <section>
 <h2>Education</h2>
-<div class="card"><p><strong> BTECH Data Science & AI</strong><br>ICFAI University, Hyderabad — CGPA: 8.85</p></div>
+<div class="card"><p><strong>BTECH Data Science & AI</strong><br>ICFAI University, Hyderabad — CGPA: 8.85</p></div>
 <div class="card"><p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p></div>
-<div class="card"><p><strong>ICSE</strong><br>Hyderabad Public School — 83.4%</p></div>
+<div class="card"><p><strong>Schooling</strong><br>Hyderabad Public School(ICSE) — 83.4%</p></div>
 </section>
 
+<!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 <div class="card">
   <h3>Facial Age & Gender Prediction</h3>
-  <p>Developed a CNN-based model using TensorFlow and Keras to predict age and gender from facial images, with a Streamlit interface for real-time inference.</p>
+  <p>
+    Built a CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images,
+    with a Streamlit interface for inference.
+  </p>
 </div>
 <div class="card">
   <h3>Circular Object Detection</h3>
-  <p>Implemented a computer vision pipeline using OpenCV and Hough Circle Transform to detect circular objects with real-time visualization.</p>
+  <p>
+    Developed a computer vision pipeline using OpenCV and Hough Circle Transform to detect circular objects
+    with real-time visualization.
+  </p>
 </div>
 </section>
 
+<!-- WORK -->
 <section>
 <h2>Work History</h2>
 <div class="card">
   <h3>Data Science Intern — Megha AI</h3>
-  <p>Worked on an AI-based Part Traceability System on AWS using Lambda, API Gateway, PostgreSQL, and S3.</p>
+  <p>
+    Worked on an AI-based Part Traceability System on AWS using Lambda, API Gateway, PostgreSQL, and S3.
+  </p>
 </div>
 <div class="card">
   <h3>Business Development Intern — Marcamor</h3>
-  <p>Supported client outreach and business development through daily customer engagement.</p>
+  <p>
+    Supported client outreach and business development through daily customer engagement.
+  </p>
 </div>
 </section>
 
@@ -205,7 +220,7 @@ footer {
 </div>
 
 <script>
-/* STRONGER scroll animation */
+/* STRONG scroll animation */
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -222,4 +237,3 @@ document.querySelectorAll(".card").forEach(card => observer.observe(card));
 
 </body>
 </html>
-
