@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Varshini Sambatur | Portfolio</title>
 <style>
-/* --- Subtle Animated Gradient Background --- */
+/* --- Subtle Neutral Gradient Background --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     color: #fff;
-    background: linear-gradient(-45deg, #3b3b3b, #5c5c5c, #4f4f4f, #6e6e6e);
+    background: linear-gradient(-45deg, #3a3a3a, #4f4f4f, #5c5c5c, #6a6a6a);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -70,32 +70,33 @@ h2 {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
-.skill:hover {
+.skill:hover, .skill:active {
     transform: scale(1.1);
+    background-color: rgba(255,255,255,0.3);
 }
 
-/* --- Projects --- */
-.projects {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.project-card {
+/* --- Project & Experience Cards --- */
+.project-card, .experience-item {
     background-color: rgba(0,0,0,0.6);
     padding: 1.5rem;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-10px) scale(1.02);
+/* --- Hover / Tap Interaction --- */
+.project-card:hover, .experience-item:hover,
+.project-card:active, .experience-item:active {
+    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
+/* --- Project card text --- */
 .project-card h3 {
     margin-top: 0;
 }
@@ -113,16 +114,7 @@ h2 {
     margin-top: 0.5rem;
 }
 
-/* --- Work History --- */
-.experience-item {
-    background-color: rgba(0,0,0,0.6);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-/* --- Footer --- */
+/* --- Footer Links --- */
 footer a {
     color: #fff;
     text-decoration: underline;
@@ -183,18 +175,16 @@ footer a:hover {
 <!-- Projects Section -->
 <section class="projects-section">
     <h2>Projects</h2>
-    <div class="projects">
-        <div class="project-card">
-            <h3>Age & Gender Prediction</h3>
-            <p>Deep learning project predicting age and gender from face images using Python and OpenCV. Fully automated model training and evaluation pipeline.</p>
-            <a href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View Project</a>
-        </div>
+    <div class="project-card">
+        <h3>Age & Gender Prediction</h3>
+        <p>Deep learning project predicting age and gender from face images using Python and OpenCV. Fully automated model training and evaluation pipeline.</p>
+        <a href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View Project</a>
+    </div>
 
-        <div class="project-card">
-            <h3>Circular Object Detection (Hough Transform)</h3>
-            <p>Detecting circular objects in images using Hough Transform. Includes preprocessing, detection, and visualization of results.</p>
-            <a href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View Project</a>
-        </div>
+    <div class="project-card">
+        <h3>Circular Object Detection (Hough Transform)</h3>
+        <p>Detecting circular objects in images using Hough Transform. Includes preprocessing, detection, and visualization of results.</p>
+        <a href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View Project</a>
     </div>
 </section>
 
@@ -217,7 +207,24 @@ footer a:hover {
 &copy; 2026 Varshini Sambatur
 </footer>
 
+<!-- --- Scroll Fade-in Script --- -->
+<script>
+function fadeInOnScroll() {
+    const elements = document.querySelectorAll('.project-card, .experience-item');
+    const windowBottom = window.innerHeight;
+
+    elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < windowBottom - 50) {
+            el.style.opacity = 1;
+            el.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('load', fadeInOnScroll);
+</script>
 
 </body>
 </html>
-
