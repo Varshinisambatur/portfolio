@@ -16,12 +16,12 @@
 
 /* ========== BODY ========== */
 body {
-  background: #020617;
-  color: #e5e7eb;
+  background: #eaf2fb; /* LIGHT BLUE */
+  color: #0f172a;
   overflow-x: hidden;
 }
 
-/* ========== CANVAS BACKGROUND ========== */
+/* ========== CANVAS ========== */
 #bg-canvas {
   position: fixed;
   inset: 0;
@@ -44,12 +44,11 @@ header {
 header h1 {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #f8fafc;
 }
 
 header p {
   margin-top: 0.4rem;
-  color: #94a3b8;
+  color: #475569;
   letter-spacing: 0.08em;
   font-size: 0.9rem;
 }
@@ -60,7 +59,7 @@ header .links {
 }
 
 header .links a {
-  color: #93c5fd;
+  color: #1e40af;
   text-decoration: none;
   margin: 0 0.4rem;
 }
@@ -73,18 +72,17 @@ section {
 section h2 {
   font-size: 1.7rem;
   margin-bottom: 1.6rem;
-  color: #f1f5f9;
 }
 
 /* ========== CARDS ========== */
 .card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 1.7rem;
   margin-bottom: 1.6rem;
 
-  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.12);
 
   opacity: 0;
   transform: translateY(50px);
@@ -99,17 +97,16 @@ section h2 {
 .card:hover,
 .card:active {
   transform: translateY(-8px);
-  box-shadow: 0 40px 90px rgba(0,0,0,0.8);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.18);
 }
 
 .card h3 {
   margin-bottom: 0.4rem;
   font-size: 1.15rem;
-  color: #f8fafc;
 }
 
 .card p {
-  color: #cbd5e1;
+  color: #334155;
   font-size: 0.96rem;
   line-height: 1.6;
 }
@@ -124,9 +121,9 @@ section h2 {
 .skill {
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(147, 197, 253, 0.12);
+  background: rgba(30, 64, 175, 0.08);
   font-size: 0.85rem;
-  color: #e0f2fe;
+  color: #1e293b;
 }
 
 /* ========== PROJECT LINK ========== */
@@ -135,15 +132,15 @@ section h2 {
   margin-top: 0.9rem;
   padding: 0.45rem 1.2rem;
   border-radius: 999px;
-  border: 1px solid #93c5fd;
-  color: #93c5fd;
+  border: 1px solid #1e40af;
+  color: #1e40af;
   font-size: 0.85rem;
   transition: all 0.3s ease;
 }
 
 .project-link:hover {
-  background: #93c5fd;
-  color: #020617;
+  background: #1e40af;
+  color: #ffffff;
 }
 
 /* ========== FOOTER ========== */
@@ -151,7 +148,7 @@ footer {
   text-align: center;
   margin-top: 4rem;
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #475569;
 }
 
 /* ========== MOBILE ========== */
@@ -169,7 +166,7 @@ footer {
 
 <header>
   <h1>Varshini Sambatur</h1>
-  <p>Data Science AND AI Undergraduate</p>
+  <p>Data Science and AI Undergraduate </p>
   <div class="links">
     📧 <a href="mailto:Varshinisambatur@gmail.com">Varshinisambatur@gmail.com</a> |
     📞 9247807010 |
@@ -177,7 +174,6 @@ footer {
   </div>
 </header>
 
-<!-- ABOUT -->
 <section>
 <h2>About Me</h2>
 <div class="card">
@@ -189,21 +185,13 @@ footer {
 </div>
 </section>
 
-<!-- EDUCATION -->
 <section>
 <h2>Education</h2>
-<div class="card">
-  <p><strong>BTECH in Data Science and AI</strong><br>ICFAI University — CGPA: 8.85</p>
-</div>
-<div class="card">
-  <p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p>
-</div>
-<div class="card">
-  <p><strong>Schooling</strong><br>Hyderabad Public School (ICSE) - 83.4%</p>
-</div>
+<div class="card"><p><strong>BTECH in Data Science and AI</strong><br>ICFAI University — CGPA: 8.85</p></div>
+<div class="card"><p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p></div>
+<div class="card"><p><strong>Schooling</strong><br>Hyderabad Public School (ICSE)</p></div>
 </section>
 
-<!-- SKILLS -->
 <section>
 <h2>Skills</h2>
 <div class="card">
@@ -220,7 +208,6 @@ footer {
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 
@@ -242,7 +229,6 @@ footer {
 
 </section>
 
-<!-- WORK -->
 <section>
 <h2>Work History</h2>
 <div class="card">
@@ -262,7 +248,7 @@ footer {
 </div>
 
 <script>
-/* ======= CARD ANIMATION ======= */
+/* ===== CARD ANIMATION ===== */
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -273,10 +259,9 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.2 }
 );
-
 document.querySelectorAll(".card").forEach(card => observer.observe(card));
 
-/* ======= TECH GRID BACKGROUND ======= */
+/* ===== GRID BACKGROUND ===== */
 const canvas = document.getElementById("bg-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -291,11 +276,12 @@ let offset = 0;
 
 function drawGrid() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = "rgba(148,163,184,0.08)";
+
+  ctx.strokeStyle = "rgba(15,23,42,0.18)"; /* DARK GRID */
   ctx.lineWidth = 1;
 
   const spacing = 60;
-  offset += 0.3;
+  offset += 0.25;
 
   for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
     ctx.beginPath();
@@ -313,11 +299,8 @@ function drawGrid() {
 
   requestAnimationFrame(drawGrid);
 }
-
 drawGrid();
 </script>
 
 </body>
 </html>
-
-
