@@ -6,14 +6,6 @@
 <title>Varshini Sambatur | Portfolio</title>
 
 <style>
-/* ================= ROOT ================= */
-:root {
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --accent: #475569;
-  --card-bg: rgba(255, 255, 255, 0.85);
-}
-
 /* ================= RESET ================= */
 * {
   margin: 0;
@@ -22,56 +14,25 @@
   font-family: "Inter", system-ui, sans-serif;
 }
 
-/* ================= BACKGROUND MAGIC ================= */
+/* ================= DARK ANIMATED BACKGROUND ================= */
 body {
   min-height: 100vh;
-  color: var(--text-main);
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Layer 1 – Grey Ombre */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    circle at top left,
-    #e5e7eb,
-    #d1d5db,
-    #cbd5e1
+  color: #e5e7eb;
+  background: linear-gradient(
+    120deg,
+    #0f172a,
+    #111827,
+    #1e293b,
+    #020617
   );
-  animation: bgShift1 18s ease-in-out infinite alternate;
-  z-index: -2;
+  background-size: 400% 400%;
+  animation: darkFlow 14s ease infinite;
 }
 
-/* Layer 2 – Sky Blue Ombre */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    circle at bottom right,
-    #dbeafe,
-    #bfdbfe,
-    #e0f2fe
-  );
-  animation: bgShift2 22s ease-in-out infinite alternate;
-  mix-blend-mode: soft-light;
-  z-index: -1;
-}
-
-/* Keyframes – VERY visible */
-@keyframes bgShift1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-6%, -4%) scale(1.1); }
-  100% { transform: translate(4%, 6%) scale(1); }
-}
-
-@keyframes bgShift2 {
-  0%   { opacity: 0.6; transform: translate(0,0) scale(1); }
-  50%  { opacity: 0.85; transform: translate(5%, -5%) scale(1.15); }
-  100% { opacity: 0.6; transform: translate(-4%, 4%) scale(1); }
+@keyframes darkFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ================= LAYOUT ================= */
@@ -90,11 +51,12 @@ header {
 header h1 {
   font-size: 2.8rem;
   font-weight: 700;
+  color: #f8fafc;
 }
 
 header p {
   margin-top: 0.4rem;
-  color: var(--text-muted);
+  color: #cbd5f5;
 }
 
 header .links {
@@ -103,7 +65,7 @@ header .links {
 }
 
 header .links a {
-  color: var(--accent);
+  color: #93c5fd;
   text-decoration: none;
   margin: 0 0.4rem;
 }
@@ -116,21 +78,22 @@ section {
 section h2 {
   font-size: 1.7rem;
   margin-bottom: 1.6rem;
+  color: #f1f5f9;
 }
 
 /* ================= CARDS ================= */
 .card {
-  background: var(--card-bg);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
   border-radius: 22px;
   padding: 1.7rem;
   margin-bottom: 1.6rem;
 
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
 
   opacity: 0;
-  transform: translateY(60px) scale(0.96);
-  transition: all 0.8s ease;
+  transform: translateY(50px) scale(0.96);
+  transition: all 0.7s ease;
 }
 
 .card.show {
@@ -141,16 +104,17 @@ section h2 {
 .card:hover,
 .card:active {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 40px 85px rgba(0,0,0,0.2);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.7);
 }
 
 .card h3 {
   margin-bottom: 0.4rem;
   font-size: 1.15rem;
+  color: #f8fafc;
 }
 
 .card p {
-  color: var(--text-muted);
+  color: #d1d5db;
   font-size: 0.97rem;
   line-height: 1.6;
 }
@@ -165,8 +129,9 @@ section h2 {
 .skill {
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(71, 85, 105, 0.08);
+  background: rgba(147, 197, 253, 0.12);
   font-size: 0.85rem;
+  color: #e0f2fe;
 }
 
 /* ================= PROJECT LINK ================= */
@@ -175,15 +140,15 @@ section h2 {
   margin-top: 0.9rem;
   padding: 0.45rem 1.2rem;
   border-radius: 999px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  border: 1px solid #93c5fd;
+  color: #93c5fd;
   font-size: 0.85rem;
   transition: all 0.3s ease;
 }
 
 .project-link:hover {
-  background: var(--accent);
-  color: #fff;
+  background: #93c5fd;
+  color: #020617;
 }
 
 /* ================= FOOTER ================= */
@@ -191,7 +156,7 @@ footer {
   text-align: center;
   margin-top: 4rem;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 /* ================= MOBILE ================= */
@@ -214,27 +179,24 @@ footer {
   </div>
 </header>
 
-<!-- ABOUT -->
 <section>
 <h2>About Me</h2>
 <div class="card">
   <p>
     Driven and adaptable Data Science & AI undergraduate (CGPA: 8.85) with hands-on experience in deep learning,
-    CNN-based vision models, and Python-driven AI pipelines. Experienced in building real-world systems involving
-    computer vision, backend APIs, and AWS-based data ingestion, with a strong interest in solving practical problems using AI.
+    CNN-based vision models, and Python-driven AI pipelines. Experienced in computer vision, backend APIs,
+    and AWS-based data ingestion with a strong interest in real-world AI applications.
   </p>
 </div>
 </section>
 
-<!-- EDUCATION -->
 <section>
 <h2>Education</h2>
-<div class="card"><p><strong>B.Sc. Data Science & AI</strong><br>ICFAI University, Hyderabad — CGPA: 8.85</p></div>
+<div class="card"><p><strong>BTECH Data Science & AI</strong><br>ICFAI University — CGPA: 8.85</p></div>
 <div class="card"><p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p></div>
-<div class="card"><p><strong>Schooling</strong><br>Hyderabad Public School(ICSE) — 83.4%</p></div>
+<div class="card"><p><strong>Schooling</strong></strong><br>Hyderabad Public School(ICSE) — 83.4%</p></div>
 </section>
 
-<!-- SKILLS -->
 <section>
 <h2>Skills</h2>
 <div class="card">
@@ -247,44 +209,41 @@ footer {
     <span class="skill">OpenCV</span>
     <span class="skill">AWS</span>
     <span class="skill">PostgreSQL</span>
-    <span class="skill">API Development</span>
   </div>
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 
 <div class="card">
   <h3>Facial Age & Gender Prediction</h3>
-  <p>CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images.</p>
+  <p>CNN-based model using TensorFlow and Keras to predict age and gender from facial images.</p>
   <a class="project-link" href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View on GitHub →</a>
 </div>
 
 <div class="card">
-  <h3>Circular Object Detection (Hough Transform)</h3>
+  <h3>Circular Object Detection</h3>
   <p>Computer vision pipeline using OpenCV and Hough Circle Transform for detecting circular objects.</p>
   <a class="project-link" href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View on GitHub →</a>
 </div>
 
 </section>
 
-<!-- WORK -->
 <section>
 <h2>Work History</h2>
 <div class="card">
   <h3>Data Science Intern — Megha AI</h3>
-  <p>Worked on an AI-driven Part Traceability System using AWS Lambda, API Gateway, PostgreSQL, and S3.</p>
+  <p>Built AI-based Part Traceability systems using AWS Lambda, API Gateway, PostgreSQL, and S3.</p>
 </div>
 <div class="card">
   <h3>Business Development Intern — Marcamor</h3>
-  <p>Supported client outreach, communication, and business strategy initiatives.</p>
+  <p>Supported client outreach and business strategy.</p>
 </div>
 </section>
 
 <footer>
-©️ 2026 Varshini Sambatur
+© 2026 Varshini Sambatur
 </footer>
 
 </div>
