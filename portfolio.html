@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varshini Sambatur | Portfolio</title>
+<style>
+/* --- Subtle Animated Gradient Background --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background: linear-gradient(-45deg, #3b3b3b, #5c5c5c, #4f4f4f, #6e6e6e);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Header & Footer --- */
+header, footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(0,0,0,0.6);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* --- Main Content --- */
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+/* --- Sections --- */
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Skills --- */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+
+/* --- Projects --- */
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-card p {
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.4;
+}
+
+.project-card a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* --- Work History --- */
+.experience-item {
+    background-color: rgba(0,0,0,0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* --- Footer --- */
+footer a {
+    color: #fff;
+    text-decoration: underline;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #f9c846;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .skills {
+        justify-content: center;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .project-card, .experience-item {
+        padding: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Varshini Sambatur</h1>
+    <p>Data Science & AI Undergraduate Student</p>
+</header>
+
+<main>
+
+<!-- Skills Section -->
+<section class="skills-section">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">Python</div>
+        <div class="skill">NumPy</div>
+        <div class="skill">OpenCV</div>
+        <div class="skill">TensorFlow</div>
+        <div class="skill">Keras</div>
+        <div class="skill">SQL / PostgreSQL</div>
+        <div class="skill">Java</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">Deep Learning</div>
+        <div class="skill">Image Classification</div>
+        <div class="skill">Face Analysis</div>
+        <div class="skill">Streamlit</div>
+        <div class="skill">AWS (Lambda, API Gateway, S3)</div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <h3>Age & Gender Prediction</h3>
+            <p>Deep learning project predicting age and gender from face images using Python and OpenCV. Fully automated model training and evaluation pipeline.</p>
+            <a href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Circular Object Detection (Hough Transform)</h3>
+            <p>Detecting circular objects in images using Hough Transform. Includes preprocessing, detection, and visualization of results.</p>
+            <a href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View Project</a>
+        </div>
+    </div>
+</section>
+
+<!-- Work History Section -->
+<section class="experience-section">
+    <h2>Work History</h2>
+    <div class="experience-item">
+        <strong>Data Science Intern | Megha AI</strong> – Built AI-based Part Traceability system on AWS.
+    </div>
+    <div class="experience-item">
+        <strong>Business Development Intern | Marcamor</strong> – Assisted in client acquisition and team workflow.
+    </div>
+</section>
+
+</main>
+
+<footer>
+📞 9247807010 | ✉️ varshinisambatur@gmail.com | <a href="https://www.linkedin.com/in/varshinisambatur/" target="_blank">LinkedIn</a><br>
+&copy; 2026 Varshini Sambatur
+</footer>
+
+</body>
+</html>
