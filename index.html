@@ -1,234 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varshini Sambatur | Portfolio</title>
-<style>
-/* --- Subtle Neutral Gradient Background --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    background: linear-gradient(-45deg, #3a3a3a, #4f4f4f, #5c5c5c, #6a6a6a);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Varshini Sambatur | Portfolio</title>
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* --- Header & Footer --- */
-header, footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: rgba(0,0,0,0.6);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-header p {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-}
-
-/* --- Main Content --- */
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem 1rem;
-}
-
-/* --- Sections --- */
-section {
-    margin-bottom: 2rem;
-}
-
-h2 {
-    border-bottom: 2px solid #fff;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-/* --- Skills --- */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill {
-    background-color: rgba(255,255,255,0.2);
-    color: #fff;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.skill:hover, .skill:active {
-    transform: scale(1.1);
-    background-color: rgba(255,255,255,0.3);
-}
-
-/* --- Project & Experience Cards --- */
-.project-card, .experience-item {
-    background-color: rgba(0,0,0,0.6);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-/* --- Hover / Tap Interaction --- */
-.project-card:hover, .experience-item:hover,
-.project-card:active, .experience-item:active {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
-
-/* --- Project card text --- */
-.project-card h3 {
-    margin-top: 0;
-}
-
-.project-card p {
-    margin: 0.5rem 0 1rem 0;
-    line-height: 1.4;
-}
-
-.project-card a {
-    display: inline-block;
-    color: #fff;
-    text-decoration: underline;
-    font-weight: bold;
-    margin-top: 0.5rem;
-}
-
-/* --- Footer Links --- */
-footer a {
-    color: #fff;
-    text-decoration: underline;
-    margin: 0 0.5rem;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: #f9c846;
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-    .skills {
-        justify-content: center;
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f8f9fb, #eef3f8);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-primary: #1f2937;
+      --text-secondary: #4b5563;
+      --accent: #64748b;
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
+      --radius: 18px;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
     header h1 {
-        font-size: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
+
     header p {
-        font-size: 1rem;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
     }
-    .project-card, .experience-item {
-        padding: 1rem;
+
+    header .links {
+      margin-top: 1rem;
+      font-size: 0.95rem;
     }
-}
-</style>
+
+    header .links a {
+      margin: 0 0.5rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1.3rem;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 0.6s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover,
+    .card:active {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
 
-<header>
-    <h1>Varshini Sambatur</h1>
-    <p>Data Science & AI Undergraduate Student</p>
-</header>
+    <!-- HEADER -->
+    <header>
+      <h1>Varshini Sambatur</h1>
+      <p>Data Science & AI Undergraduate Student</p>
 
-<main>
+      <div class="links">
+        📧 <a href="mailto:Varshinisambatur@gmail.com">Varshinisambatur@gmail.com</a> |
+        📞 9247807010 |
+        🔗 <a href="https://www.linkedin.com/in/varshini-sambatur-0a282234a" target="_blank">LinkedIn</a>
+      </div>
+    </header>
 
-<!-- Skills Section -->
-<section class="skills-section">
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill">Python</div>
-        <div class="skill">NumPy</div>
-        <div class="skill">OpenCV</div>
-        <div class="skill">TensorFlow</div>
-        <div class="skill">Keras</div>
-        <div class="skill">SQL / PostgreSQL</div>
-        <div class="skill">Java</div>
-        <div class="skill">Machine Learning</div>
-        <div class="skill">Deep Learning</div>
-        <div class="skill">Image Classification</div>
-        <div class="skill">Face Analysis</div>
-        <div class="skill">Streamlit</div>
-        <div class="skill">AWS (Lambda, API Gateway, S3)</div>
-    </div>
-</section>
+    <!-- ABOUT ME -->
+    <section>
+      <h2>About Me</h2>
+      <div class="card">
+        <p>
+          Driven and adaptable Data Science & AI undergraduate (CGPA: 8.85) with hands-on experience in deep learning,
+          CNN-based vision models, and Python-driven AI pipelines. Worked on real-world systems involving computer vision,
+          backend APIs, and data ingestion on AWS, with a strong interest in applying AI to practical problems.
+        </p>
+      </div>
+    </section>
 
-<!-- Projects Section -->
-<section class="projects-section">
-    <h2>Projects</h2>
-    <div class="project-card">
-        <h3>Age & Gender Prediction</h3>
-        <p>Developed a CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images. Implemented a Streamlit interface to run the model and visualize predictions locally.</p>
-        <a href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View Project</a>
-    </div>
+    <!-- EDUCATION -->
+    <section>
+      <h2>Education</h2>
 
-    <div class="project-card">
+      <div class="card">
+        <p><strong>B.Sc. (Technology) — Data Science & AI</strong><br>
+        ICFAI University, Hyderabad • CGPA: 8.85</p>
+      </div>
+
+      <div class="card">
+        <p><strong>Intermediate (IPE)</strong><br>
+        Narayana Junior College, Hyderabad • 93.2%</p>
+      </div>
+
+      <div class="card">
+        <p><strong>ICSE</strong><br>
+        Hyderabad Public School, Hyderabad • 83.4%</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+      <h2>Projects</h2>
+
+      <div class="card">
+        <h3>Facial Age & Gender Prediction (CNN)</h3>
+        <p>
+          Built a CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images.
+          Trained and evaluated on the UTKFace dataset with a Streamlit-based interface.
+        </p>
+      </div>
+
+      <div class="card">
         <h3>Circular Object Detection (Hough Transform)</h3>
-        <p>Built a computer vision system using Python and OpenCV to detect circular objects with preprocessing and parameter tuning. Real-time visualization shows accurate detection results.</p>
-        <a href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View Project</a>
-    </div>
-</section>
+        <p>
+          Developed a computer vision system using OpenCV to detect circular objects using preprocessing and parameter tuning,
+          with real-time visualization of results.
+        </p>
+      </div>
+    </section>
 
-<!-- Work History Section -->
-<section class="experience-section">
-    <h2>Work History</h2>
-    <div class="experience-item">
-        <strong>Data Science Intern | Megha AI</strong> – Built AI-based Part Traceability system on AWS, including data ingestion pipelines, API development, and PostgreSQL schema design.
-    </div>
-    <div class="experience-item">
-        <strong>Business Development Intern | Marcamor</strong> – Assisted in client acquisition and team workflow; managed communications and supported business development initiatives.
-    </div>
-</section>
+    <!-- WORK HISTORY -->
+    <section>
+      <h2>Work History</h2>
 
+      <div class="card">
+        <h3>Data Science Intern — Megha AI</h3>
+        <p>Worked on an AI-based Part Traceability System using AWS, PostgreSQL, Lambda, and API Gateway.</p>
+      </div>
 
+      <div class="card">
+        <h3>Business Development Intern — Marcamor</h3>
+        <p>Supported client acquisition and business outreach through daily customer engagement.</p>
+      </div>
+    </section>
 
-</main>
+    <footer>
+      © 2026 Varshini Sambatur
+    </footer>
+  </div>
 
-<footer>
-📞 9247807010 | ✉️ varshinisambatur@gmail.com | 
-<a href="https://www.linkedin.com/in/varshini-sambatur-0a282234a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a><br>
-&copy; 2026 Varshini Sambatur
-</footer>
+  <!-- SCROLL ANIMATION -->
+  <script>
+    const cards = document.querySelectorAll(".card");
 
-<!-- --- Scroll Fade-in Script --- -->
-<script>
-function fadeInOnScroll() {
-    const elements = document.querySelectorAll('.project-card, .experience-item');
-    const windowBottom = window.innerHeight;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < windowBottom - 50) {
-            el.style.opacity = 1;
-            el.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-window.addEventListener('scroll', fadeInOnScroll);
-window.addEventListener('load', fadeInOnScroll);
-</script>
-
+    cards.forEach((card) => observer.observe(card));
+  </script>
 </body>
 </html>
-
-
