@@ -6,82 +6,84 @@
 <title>Varshini Sambatur | Portfolio</title>
 
 <style>
-/* ========== RESET ========== */
+:root {
+  --bg-main: #eaf2f8;
+  --card-bg: #0f172a;
+  --text-main: #e5e7eb;
+  --text-muted: #cbd5e1;
+  --accent: #94a3b8;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
 }
 
-/* ========== BODY ========== */
 body {
-  background: #eaf2fb;
-  color: #0f172a;
+  background: var(--bg-main);
   overflow-x: hidden;
+  color: var(--text-main);
 }
 
-/* ========== CANVAS ========== */
-#bg-canvas {
+/* CANVAS BACKGROUND */
+canvas {
   position: fixed;
   inset: 0;
   z-index: -1;
 }
 
-/* ========== LAYOUT ========== */
+/* LAYOUT */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 3rem 1.5rem 4rem;
 }
 
-/* ========== HEADER ========== */
+/* HEADER */
 header {
   text-align: center;
   margin-bottom: 4rem;
+  color: #020617;
 }
 
 header h1 {
   font-size: 2.8rem;
-  font-weight: 700;
 }
 
 header p {
-  margin-top: 0.4rem;
-  color: #475569;
-  letter-spacing: 0.08em;
-  font-size: 0.9rem;
+  color: #334155;
+  margin-top: 0.3rem;
 }
 
-header .links {
+.links {
   margin-top: 1rem;
   font-size: 0.95rem;
 }
 
-header .links a {
-  color: #1e40af;
+.links a {
+  color: #020617;
   text-decoration: none;
-  margin: 0 0.4rem;
 }
 
-/* ========== SECTIONS ========== */
+/* SECTIONS */
 section {
-  margin-bottom: 4.5rem;
+  margin-bottom: 4rem;
 }
 
 section h2 {
-  font-size: 1.7rem;
-  margin-bottom: 1.6rem;
+  color: #020617;
+  margin-bottom: 1.5rem;
 }
 
-/* ========== DARK CARDS ========== */
+/* CARDS */
 .card {
-  background: rgba(15, 23, 42, 0.9); /* DARK CHARCOAL */
-  border-radius: 20px;
-  padding: 1.8rem;
-  margin-bottom: 1.8rem;
-
-  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  background: var(--card-bg);
+  padding: 1.6rem;
+  border-radius: 22px;
+  margin-bottom: 1.6rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 
   opacity: 0;
   transform: translateY(50px);
@@ -93,75 +95,49 @@ section h2 {
   transform: translateY(0);
 }
 
-.card:hover,
-.card:active {
+.card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 45px 90px rgba(0,0,0,0.45);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
 }
 
-/* ========== CARD TEXT ========== */
 .card h3 {
-  color: #f8fafc; /* near white */
   margin-bottom: 0.4rem;
-  font-size: 1.15rem;
 }
 
 .card p {
-  color: #cbd5e1; /* light grey */
-  font-size: 0.96rem;
-  line-height: 1.6;
+  color: var(--text-muted);
+  line-height: 1.55;
 }
 
-/* ========== SKILLS ========== */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-}
-
-.skill {
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  font-size: 0.85rem;
-  color: #e5e7eb;
-}
-
-/* ========== PROJECT LINK ========== */
-.project-link {
+/* BUTTONS */
+.button {
   display: inline-block;
-  margin-top: 0.9rem;
-  padding: 0.45rem 1.2rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.3rem;
   border-radius: 999px;
-  border: 1px solid #94a3b8;
-  color: #e5e7eb;
-  font-size: 0.85rem;
+  border: 1px solid var(--accent);
+  color: var(--text-main);
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.project-link:hover {
-  background: #e5e7eb;
-  color: #0f172a;
+.button:hover {
+  background: var(--accent);
+  color: #020617;
 }
 
-/* ========== FOOTER ========== */
+/* FOOTER */
 footer {
   text-align: center;
-  margin-top: 4rem;
+  color: #334155;
   font-size: 0.85rem;
-  color: #475569;
-}
-
-/* ========== MOBILE ========== */
-@media (max-width: 600px) {
-  header h1 { font-size: 2.3rem; }
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="bg-canvas"></canvas>
+<canvas id="bg"></canvas>
 
 <div class="container">
 
@@ -180,32 +156,31 @@ footer {
 <div class="card">
   <p>
     Driven and adaptable Data Science & AI undergraduate (CGPA: 8.85) with hands-on experience in deep learning,
-    CNN-based vision models, and Python-driven AI pipelines.
+    CNN-based vision models, and Python-driven AI pipelines. Worked on real-world systems involving computer vision,
+    backend APIs, and data ingestion on AWS.
   </p>
 </div>
 </section>
 
 <section>
+<h2>Resume</h2>
+<div class="card">
+  <p>You can view or download my resume below.</p>
+  <a class="button" href="resume.pdf" target="_blank">View Resume</a>
+  <a class="button" href="resume.pdf" download>Download Resume</a>
+</div>
+</section>
+
+<section>
 <h2>Education</h2>
-<div class="card"><p><strong>BTECH in Data Science </strong><br>ICFAI University — CGPA: 8.85</p></div>
+<div class="card"><p><strong>BTECH in Data Science and AI</strong><br>ICFAI University — CGPA: 8.85</p></div>
 <div class="card"><p><strong>Intermediate</strong><br>Narayana Junior College — 93.2%</p></div>
-<div class="card"><p><strong>Schooling</strong><br>Hyderabad Public School (ICSE) - 83.4%</p></div>
+<div class="card"><p><strong>Schooling</strong><br>Hyderabad Public School (ICSE) — 83.4%</p></div>
 </section>
 
 <section>
 <h2>Skills</h2>
-<div class="card">
-  <div class="skills">
-    <span class="skill">Python</span>
-    <span class="skill">Machine Learning</span>
-    <span class="skill">Deep Learning</span>
-    <span class="skill">CNNs</span>
-    <span class="skill">TensorFlow</span>
-    <span class="skill">OpenCV</span>
-    <span class="skill">AWS</span>
-    <span class="skill">PostgreSQL</span>
-  </div>
-</div>
+<div class="card"><p>Python, TensorFlow, Keras, OpenCV, NumPy, SQL, PostgreSQL, AWS (Lambda, S3, API Gateway)</p></div>
 </section>
 
 <section>
@@ -213,18 +188,14 @@ footer {
 
 <div class="card">
   <h3>Facial Age & Gender Prediction</h3>
-  <p>CNN-based deep learning model using TensorFlow and Keras to predict age and gender from facial images.</p>
-  <a class="project-link" href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">
-    View on GitHub →
-  </a>
+  <p>CNN-based model using TensorFlow & Keras to predict age and gender from facial images.</p>
+  <a class="button" href="https://github.com/Varshinisambatur/age-gender-prediction" target="_blank">View Project</a>
 </div>
 
 <div class="card">
   <h3>Circular Object Detection</h3>
-  <p>Computer vision pipeline using OpenCV and Hough Circle Transform to detect circular objects.</p>
-  <a class="project-link" href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">
-    View on GitHub →
-  </a>
+  <p>OpenCV-based system using Hough Circle Transform for detecting circular objects.</p>
+  <a class="button" href="https://github.com/Varshinisambatur/circular-object-detection-hough-transform" target="_blank">View Project</a>
 </div>
 
 </section>
@@ -233,7 +204,7 @@ footer {
 <h2>Work History</h2>
 <div class="card">
   <h3>Data Science Intern — Megha AI</h3>
-  <p>Worked on an AI-based Part Traceability System using AWS Lambda, API Gateway, PostgreSQL, and S3.</p>
+  <p>Worked on a Part Traceability System using AWS Lambda, API Gateway, PostgreSQL, and S3</p>
 </div>
 <div class="card">
   <h3>Business Development Intern — Marcamor</h3>
@@ -248,58 +219,63 @@ footer {
 </div>
 
 <script>
-/* ===== CARD FADE-IN ===== */
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("show");
-    });
-  },
-  { threshold: 0.2 }
-);
-document.querySelectorAll(".card").forEach(card => observer.observe(card));
-
-/* ===== GRID BACKGROUND ===== */
-const canvas = document.getElementById("bg-canvas");
+// PARTICLES (NEVER ENDING)
+const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
+let w, h, particles = [];
+
 function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
 }
 window.addEventListener("resize", resize);
 resize();
 
-let offset = 0;
-
-function drawGrid() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  ctx.strokeStyle = "rgba(15,23,42,0.2)";
-  ctx.lineWidth = 1;
-
-  const spacing = 60;
-  offset += 0.25;
-
-  for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
-    ctx.beginPath();
-    ctx.moveTo(x + offset, 0);
-    ctx.lineTo(x + offset, canvas.height);
-    ctx.stroke();
+class Particle {
+  constructor() {
+    this.reset();
   }
-
-  for (let y = -spacing; y < canvas.height + spacing; y += spacing) {
-    ctx.beginPath();
-    ctx.moveTo(0, y + offset);
-    ctx.lineTo(canvas.width, y + offset);
-    ctx.stroke();
+  reset() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.size = Math.random() * 1.5 + 0.5;
   }
-
-  requestAnimationFrame(drawGrid);
+  move() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) {
+      this.reset();
+    }
+  }
+  draw() {
+    ctx.fillStyle = "rgba(0,0,0,0.35)";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
 }
-drawGrid();
+
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+  particles.forEach(p => {
+    p.move();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
+});
+document.querySelectorAll(".card").forEach(c => observer.observe(c));
 </script>
 
 </body>
 </html>
-
